@@ -17,7 +17,7 @@ import java.util.List;
  * Created on 2019/1/23.
  *
  * @author xuyingyi@bytedance.com (Yingyi Xu)
- */
+ **/
 public class NoteListAdapter extends RecyclerView.Adapter<NoteViewHolder> {
 
     private final NoteOperator operator;

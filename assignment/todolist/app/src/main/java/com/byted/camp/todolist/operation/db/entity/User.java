@@ -7,7 +7,7 @@ import android.arch.persistence.room.PrimaryKey;
 /**
  * @author zhongshan
  * 2020-04-19.
- */
+ * **/
 @Entity(tableName = "user")
 public class User {
     @PrimaryKey

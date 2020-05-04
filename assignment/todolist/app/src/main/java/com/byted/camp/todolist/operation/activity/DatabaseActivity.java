@@ -206,16 +206,16 @@ public class DatabaseActivity extends AppCompatActivity implements View.OnClickL
             super.handleMessage(msg);
             switch (msg.what) {
                 case MSG_ADD_DATA:
-                    addData();
+                    addData();//增
                     break;
                 case MSG_DELETE_DATA:
-                    deleteData();
+                    deleteData();//删
                     break;
                 case MSG_UPDATE_DATA:
-                    updateData();
+                    updateData();//改
                     break;
                 case MSG_QUERY_DATA:
-                    queryData();
+                    queryData();//查
                     break;
                 default:
                     break;

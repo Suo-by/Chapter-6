@@ -21,7 +21,7 @@ import java.util.Locale;
  * Created on 2019/1/23.
  *
  * @author xuyingyi@bytedance.com (Yingyi Xu)
- */
+ **/
 public class NoteViewHolder extends RecyclerView.ViewHolder {
 
     private static final SimpleDateFormat SIMPLE_DATE_FORMAT =

@@ -5,7 +5,7 @@ import android.provider.BaseColumns;
 /**
  * @author zhongshan
  * 2020-04-19.
- */
+ **/
 public class FeedReaderContract {
 
     public static final String SQL_CREATE_ENTRIES =

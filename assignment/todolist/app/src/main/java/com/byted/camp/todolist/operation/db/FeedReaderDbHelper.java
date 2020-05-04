@@ -1,16 +1,16 @@
 package com.byted.camp.todolist.operation.db;
 
-import static com.byted.camp.todolist.operation.db.FeedReaderContract.SQL_CREATE_ENTRIES;
-import static com.byted.camp.todolist.operation.db.FeedReaderContract.SQL_DELETE_ENTRIES;
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import static com.byted.camp.todolist.operation.db.FeedReaderContract.SQL_CREATE_ENTRIES;
+import static com.byted.camp.todolist.operation.db.FeedReaderContract.SQL_DELETE_ENTRIES;
+
 /**
  * @author zhongshan
  * 2020-04-19.
- */
+ **/
 public class FeedReaderDbHelper extends SQLiteOpenHelper {
 
     // If you change the database schema, you must increment the database version.

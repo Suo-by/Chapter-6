@@ -34,5 +34,4 @@ public class SettingActivity extends AppCompatActivity {
         });
         commentSwitch.setChecked(isOpen);
     }
-
 }

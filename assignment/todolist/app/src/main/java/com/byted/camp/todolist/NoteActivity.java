@@ -1,7 +1,9 @@
 package com.byted.camp.todolist;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -11,7 +13,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.byted.camp.todolist.db.TodoContract;
+import com.byted.camp.todolist.db.TodoDbHelper;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class NoteActivity extends AppCompatActivity {
+    private TodoDbHelper dbHelper;
 
     private EditText editText;
     private Button addBtn;
@@ -54,15 +64,34 @@ public class NoteActivity extends AppCompatActivity {
                 finish();
             }
         });
+        dbHelper = new TodoDbHelper(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        dbHelper.close();
     }
 
     private boolean saveNote2Database(String content) {
         // TODO 插入一条新数据，返回是否插入成功
-        return false;
+        //写权限
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        //准备插入数据
+        //内容
+        values.put(TodoContract.TodoEntry.COLUMN_NAME_CONTENT, content);
+        //时间
+        SimpleDateFormat dateFormat = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss", Locale.ENGLISH);
+        Date date = new Date();
+        values.put(TodoContract.TodoEntry.COLUMN_NAME_DATE, dateFormat.format(date));
+        //状态
+        values.put(TodoContract.TodoEntry.COLUMN_NAME_STATE, 0);
+        //插入数据
+        long newId = db.insert(TodoContract.TodoEntry.TABLE_NAME, null, values);
+        if (newId < 0)
+            return false;
+        else
+            return true;
     }
 }

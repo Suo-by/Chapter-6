@@ -1,7 +1,6 @@
 package com.byted.camp.todolist.operation.activity;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
@@ -31,7 +30,7 @@ public class DebugActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_debug);
         setTitle(R.string.action_debug);
-
+        //获取文件路径
         final Button printBtn = findViewById(R.id.btn_print_path);
         final TextView pathText = findViewById(R.id.text_path);
         printBtn.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +43,7 @@ public class DebugActivity extends AppCompatActivity {
                 pathText.setText(sb);
             }
         });
-
+        //权限申请
         final Button permissionBtn = findViewById(R.id.btn_request_permission);
         permissionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +60,7 @@ public class DebugActivity extends AppCompatActivity {
                         REQUEST_CODE_STORAGE_PERMISSION);
             }
         });
-
+        //写入文本—>读出文本—>显示于fileText
         final Button fileWriteBtn = findViewById(R.id.btn_write_files);
         final TextView fileText = findViewById(R.id.text_files);
         fileWriteBtn.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +88,7 @@ public class DebugActivity extends AppCompatActivity {
             }
         });
     }
-
+    //输出权限申请结果
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
